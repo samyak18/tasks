@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius:2px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+
+.container {
+  position: relative;
+}
+
+.mySlides {
+  width:60%;
+  margin: 50px auto;
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.numbertext {
+  background-color: #05050580;
+  color: #f2f2f2;
+  font-size: 25px;
+  padding: 8px 12px;
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+}
+
+
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.down-btn {
+  display:none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #4fc6f1;
+  color: rgb(246, 245, 245);
+  border-radius: 100%;
+  border:none;
+  transition: ease-in-out 2ms;
+}
+.down-btn:hover {
+      padding:25px;
+}
+
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">Image Gallery</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">Wolverine</div>
+    <img src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\wolverine.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">captain-america</div>
+    <img src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\captain-america1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">doctor-strange</div>
+    <img src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\Doctor-strange2.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">Thanos</div>
+    <img src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\thanos.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">spiderman</div>
+    <img src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\spiderman.jpg" style="width:100%">
+  </div>
+  </div>
+
+  <div class="caption-container">
+    <p id="caption">Marvel studios</p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\wolverine.jpg" style="width:100%" onclick="currentSlide(1)" alt="Wolverine">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\captain-america1.jpg" style="width:100%" onclick="currentSlide(2)" alt="captain-america1">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\Doctor-strange2.jpg" style="width:100%" onclick="currentSlide(3)" alt="doctor-strange">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\thanos.jpg" style="width:100%" onclick="currentSlide(4)" alt="thanos">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\kumar\Downloads\Web-Internship-cognifyz-main\Web-Internship-cognifyz-main\level-3\assets\spiderman.jpg" style="width:100%" onclick="currentSlide(5)" alt="spiderman">
+    </div>    
+    </div>
+  </div>
+  <div id="down-btn" class="down-btn" onclick="downDisplay()">&#x25BC;</div>
+</div>
+
+<script>
+let slideIndex = 1;
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  document.getElementById("down-btn").style.display="block"
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+function downDisplay(){
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  document.getElementById("down-btn").style.display="none";
+}
+</script>
+    
+</body>
+</html>

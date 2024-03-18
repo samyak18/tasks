@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert-box</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            margin: 100px;
+            font-size: 20px;
+        }
+        .container .btn{
+            padding: 15px 30px;;
+            font-size: 30px;
+            background-color: rgb(26, 180, 241);
+            color: white;
+            border:none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Ask me what is the current time?</p>
+        <button class="btn" onclick="timealert()" 
+                            onmouseover="mouseover()"
+                            onmousedown="mousedown()"
+                            onmouseleave="mouseleave()">Ask Time</button>
+
+    </div>
+    <script>
+        function mouseleave(){
+            document.querySelector(".btn").style.backgroundColor = "rgb(26, 180, 241)";
+        }
+        function mouseover(){
+            document.querySelector(".btn").style.backgroundColor = "red";
+        }
+        function mousedown(){
+            document.querySelector(".btn").style.backgroundColor = "green";
+        }
+        function timealert(){
+            var hours = new Date().getHours();
+            var mintues = new Date().getMinutes();
+            var AM_PM = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            if (hours < 10){
+                hours = "0"+hours;
+            }
+            if (mintues < 10){
+                mintues = "0"+mintues;
+            }
+
+            var time = hours + ":" + mintues+ " " + AM_PM;
+
+            var greeting;
+            if (time < 10){
+                greeting = "Good morning its "+time;
+            } else if (time < 20){
+                greeting = "Good day its "+time;
+            }                   
+            else{
+                greeting = "Good evening its "+time;
+            }
+            alert(greeting);
+        }
+    </script>
+</body>
+</html>

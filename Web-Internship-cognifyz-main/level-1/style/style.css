@@ -1,0 +1,118 @@
+/* Body styles */
+* {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation styles */
+nav {
+  background-color: #333;
+  color:white;
+  text-align: center;
+  display: flex;
+  row-gap:20px;
+  align-items: first baseline;
+  margin:10px 100px 0px 100px;
+  border-radius: 20px;
+  padding:20px;
+}
+.nav-title{
+    text-align: left;
+    flex:1;
+    margin-left: 40px;
+    font-size: larger;
+}
+.nav-links{
+    flex:2;
+    display:flex;
+    justify-content:flex-end;
+}
+.nav-links a {
+    color:rgb(249, 248, 248);
+    text-decoration: none;
+    font-size: 20px;;
+    margin:auto 20px;
+    padding:10px;
+}
+.nav-links a:hover {
+    color:rgb(87, 187, 249);
+    font-size: 25px;
+    background-color: #666;
+    border-radius: 10px;
+    transition-duration: 0.3s;
+}
+
+
+/* Main content styles */
+.main-content {
+  margin:auto 100px;
+  display: flex;
+  justify-content: left; 
+  padding: 20px;
+}
+.content-image {
+    position: relative;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+  .content-image img{
+    height:400px;
+    width:100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    opacity:88%;
+  }
+
+  .content-text{
+    position: absolute;
+    top: 28%;
+    left: 2%;
+    width: 38%;
+    padding:10px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .content-text{
+    font-size: 20px;
+    border-radius:10px;
+  }
+
+
+/* Form styles */
+.form-content {
+  margin:auto 100px;
+  text-align: center;
+}
+.form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top:20px;
+  margin-bottom: 20px;
+  font-size:15px;
+}
+.form h2{
+    margin-bottom:10px;
+}
+.form input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+}
+.form input[type="submit"] {
+  width: 100px;
+  padding:10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.form input[type="submit"]:hover {
+  background-color: #555;
+}
+.form input[type="submit"]:active {
+  background-color: #f46d6d;
+}

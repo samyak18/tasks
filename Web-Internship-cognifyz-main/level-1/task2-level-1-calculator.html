@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #f7f4f43a;
+            font-family: 'Roboto', sans-serif;
+            color: #5f3af4;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .calculator {
+            background-color: rgb(253, 253, 253);
+            width: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .calculator input[type="button"] {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-bottom: 10px;
+            height: 30px;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #clear {
+            background-color: #f2f2f2;
+            color: #fb0505;
+        }
+        #clear:hover {
+            background-color: #fb0505;
+            color: #f2f2f2;
+        }
+        #operator{
+            background-color: #6f68f5;
+            color: #f8f8f8;
+        }
+        #operator:hover {
+            background-color: #f8f8f8;
+            color: #6f68f5;
+        }
+        #backspace {
+            background-color: #070000;
+            color: #f7f9f9;
+        }
+        #backspace:hover {
+            background-color: #f7f9f9;
+            color: #070000;
+        }
+        #equal {
+            background-color: #07cbf7;
+            color: #f7f9f9;
+        }
+        #equal:hover {
+            background-color: #f7f9f9;
+            color: #07cbf7;
+        }
+        #number {
+            background-color: #f2f2f2;
+            color: #000;
+        }
+        #number:hover {
+            background-color: #000;
+            color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Basic Calculator</h2>
+        <div class="result" id="result" placeholder="0"></div>
+        <input type="button" id="clear" value="C" onclick="clearResult()">
+        <input type="button" id="operator" value="(" onclick="appendToResult('(')">
+        <input type="button" id="operator" value=")" onclick="appendToResult(')')">
+        <input type="button" id="backspace" value="&#9003;" onclick="backspace()"><br>
+        <input type="button" id="number" value="1" onclick="appendToResult('1')">
+        <input type="button" id="number" value="2" onclick="appendToResult('2')">
+        <input type="button" id="number" value="3" onclick="appendToResult('3')">
+        <input type="button" id="operator" value="+" onclick="appendToResult('+')"><br>
+        <input type="button" id="number" value="4" onclick="appendToResult('4')">
+        <input type="button" id="number" value="5" onclick="appendToResult('5')">
+        <input type="button" id="number" value="6" onclick="appendToResult('6')">
+        <input type="button" id="operator" value="-" onclick="appendToResult('-')"><br>
+        <input type="button" id="number" value="7" onclick="appendToResult('7')">
+        <input type="button" id="number" value="8" onclick="appendToResult('8')">
+        <input type="button" id="number" value="9" onclick="appendToResult('9')">
+        <input type="button" id="operator" value="*" onclick="appendToResult('*')"><br>
+        <input type="button" id="number" value="0" onclick="appendToResult('0')">
+        <input type="button" id="number" value="." onclick="appendToResult('.')">
+        <input type="button" id="operator" value="/" onclick="appendToResult('/')">
+        <input type="button" id="equal" value="=" onclick="calculate()">
+    </div>
+
+    <script>
+        var answer=false;
+        function appendToResult(value) {
+            var result = document.getElementById('result').innerText;
+            document.getElementById('result').style.color = 'black';
+            if (result == 'Error') {
+                document.getElementById('result').innerText = '';
+                document.getElementById('result').style.color = 'black';
+            }
+            if(answer==true){
+                document.getElementById('result').innerText = '';
+                answer=false;
+            }
+            document.getElementById('result').innerText += value;
+        }
+
+        function calculate() {
+            try {
+                answer=true;
+                document.getElementById('result').innerText = eval(document.getElementById('result').innerText);
+            } catch (error) {
+                document.getElementById('result').innerText = 'Error';
+                document.getElementById('result').style.color = 'red';
+            }
+        }
+
+        function clearResult() {
+            answer=false;
+            document.getElementById('result').innerText ="";
+        }
+
+        function backspace() {
+            var result = document.getElementById('result').innerText;
+            document.getElementById('result').innerText = result.slice(0, -1);
+            if (result.length == 1) {
+                document.getElementById('result').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>
