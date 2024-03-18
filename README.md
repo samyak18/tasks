@@ -1,1 +1,1 @@
-# Cognifyz_web_development
+# Cognifyz_internship
